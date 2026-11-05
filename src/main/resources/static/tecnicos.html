@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Técnicos · Sistema de Chamados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" href="index.html">Sistema de Chamados</a>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="chamados.html">Chamados</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="categorias.html">Categorias</a>
+            <a href="tecnicos.html" class="ativo">Técnicos</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Técnicos</h1>
+        <p class="subtitulo">Usuários que atendem os chamados.</p>
+
+        <section class="cartao">
+            <h2 id="titulo-form">Novo técnico</h2>
+            <div id="mensagem-form" class="mensagem"></div>
+            <form id="form-tecnico" novalidate>
+                <input type="hidden" id="id">
+                <div class="campos">
+                    <label>Nome
+                        <input id="nome" maxlength="100" required>
+                    </label>
+                    <label>E-mail
+                        <input id="email" type="email" required>
+                    </label>
+                    <label>Perfil
+                        <select id="perfil" required></select>
+                    </label>
+                </div>
+                <div class="acoes">
+                    <button type="submit">Salvar</button>
+                    <button type="button" class="secundario" id="cancelar" hidden>Cancelar edição</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="cartao">
+            <h2>Técnicos cadastrados</h2>
+            <div id="mensagem-lista" class="mensagem"></div>
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Nome</th><th>E-mail</th><th>Perfil</th><th></th></tr>
+                    </thead>
+                    <tbody id="lista"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/tecnicos.js"></script>
+</body>
+</html>

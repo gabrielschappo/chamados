@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chamados · Sistema de Chamados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" href="index.html">Sistema de Chamados</a>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="chamados.html" class="ativo">Chamados</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="categorias.html">Categorias</a>
+            <a href="tecnicos.html">Técnicos</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Chamados</h1>
+        <p class="subtitulo">Abra, filtre e acompanhe os chamados.</p>
+
+        <section class="cartao">
+            <details id="novo-chamado">
+                <summary>Abrir novo chamado</summary>
+                <div id="mensagem-form" class="mensagem"></div>
+                <form id="form-chamado" novalidate>
+                    <div class="campos">
+                        <label class="campo-largo">Título
+                            <input id="titulo" maxlength="120" required>
+                        </label>
+                        <label class="campo-largo">Descrição
+                            <textarea id="descricao" maxlength="2000" required></textarea>
+                        </label>
+                        <label>Prioridade
+                            <select id="prioridade" required></select>
+                        </label>
+                        <label>Cliente
+                            <select id="cliente" required></select>
+                        </label>
+                        <label>Categoria
+                            <select id="categoria" required></select>
+                        </label>
+                        <label><span>Técnico <span class="opcional">(opcional)</span></span>
+                            <select id="tecnico"></select>
+                        </label>
+                    </div>
+                    <div class="acoes">
+                        <button type="submit">Abrir chamado</button>
+                    </div>
+                </form>
+            </details>
+        </section>
+
+        <section class="cartao">
+            <div class="cartao-cabecalho">
+                <h2>Lista de chamados</h2>
+            </div>
+            <form id="form-filtros" class="filtros">
+                <label>Status
+                    <select id="filtro-status"></select>
+                </label>
+                <label>Prioridade
+                    <select id="filtro-prioridade"></select>
+                </label>
+                <label>Cliente
+                    <select id="filtro-cliente"></select>
+                </label>
+                <label>Ordenar por
+                    <select id="ordenacao">
+                        <option value="dataAbertura,desc">Mais recentes</option>
+                        <option value="dataAbertura,asc">Mais antigos</option>
+                        <option value="titulo,asc">Título (A-Z)</option>
+                        <option value="cliente.nome,asc">Cliente (A-Z)</option>
+                    </select>
+                </label>
+            </form>
+            <div id="mensagem-lista" class="mensagem"></div>
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th><th>Título</th><th>Cliente</th><th>Categoria</th>
+                            <th>Prioridade</th><th>Status</th><th>Técnico</th><th>Abertura</th><th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista"></tbody>
+                </table>
+            </div>
+            <div class="paginacao">
+                <span id="info-pagina"></span>
+                <span>
+                    <button class="secundario pequeno" id="anterior">← Anterior</button>
+                    <button class="secundario pequeno" id="proxima">Próxima →</button>
+                </span>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/chamados.js"></script>
+</body>
+</html>

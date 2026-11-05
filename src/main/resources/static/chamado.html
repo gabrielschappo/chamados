@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalhe do chamado · Sistema de Chamados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" href="index.html">Sistema de Chamados</a>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="chamados.html" class="ativo">Chamados</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="categorias.html">Categorias</a>
+            <a href="tecnicos.html">Técnicos</a>
+        </nav>
+    </header>
+    <main>
+        <div class="migalha"><a href="chamados.html">← Voltar para chamados</a></div>
+        <div id="mensagem-pagina" class="mensagem"></div>
+
+        <div id="conteudo" hidden>
+            <div class="titulo-chamado">
+                <h1 id="titulo"></h1>
+                <span id="status"></span>
+                <span id="prioridade"></span>
+            </div>
+
+            <section class="cartao">
+                <dl class="dados">
+                    <div><dt>Número</dt><dd id="numero"></dd></div>
+                    <div><dt>Cliente</dt><dd id="cliente"></dd></div>
+                    <div><dt>Categoria</dt><dd id="categoria"></dd></div>
+                    <div><dt>Técnico</dt><dd id="tecnico"></dd></div>
+                    <div><dt>Abertura</dt><dd id="abertura"></dd></div>
+                    <div><dt>Fechamento</dt><dd id="fechamento"></dd></div>
+                </dl>
+                <p class="descricao" id="descricao"></p>
+            </section>
+
+            <div id="aviso-fechado" class="mensagem aviso" hidden>
+                Este chamado está fechado e não pode mais ser alterado. Ainda é possível registrar comentários.
+            </div>
+
+            <div class="grade grade-2" id="acoes-chamado">
+                <section class="cartao">
+                    <h2>Alterar status</h2>
+                    <div id="mensagem-status" class="mensagem"></div>
+                    <form id="form-status" class="linha-acao" novalidate>
+                        <label>Novo status
+                            <select id="novo-status"></select>
+                        </label>
+                        <button type="submit">Alterar</button>
+                    </form>
+                </section>
+
+                <section class="cartao">
+                    <h2>Atribuir técnico</h2>
+                    <div id="mensagem-atribuir" class="mensagem"></div>
+                    <form id="form-atribuir" class="linha-acao" novalidate>
+                        <label>Técnico
+                            <select id="novo-tecnico"></select>
+                        </label>
+                        <button type="submit">Atribuir</button>
+                    </form>
+                </section>
+            </div>
+
+            <section class="cartao">
+                <h2>Comentários</h2>
+                <ul class="comentarios" id="comentarios"></ul>
+                <div id="mensagem-comentario" class="mensagem"></div>
+                <form id="form-comentario" novalidate>
+                    <div class="campos">
+                        <label>Autor
+                            <input id="autor" maxlength="100" required>
+                        </label>
+                        <label class="campo-largo">Comentário
+                            <textarea id="texto" maxlength="2000" required></textarea>
+                        </label>
+                    </div>
+                    <div class="acoes">
+                        <button type="submit">Adicionar comentário</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="cartao" id="secao-editar">
+                <details>
+                    <summary>Editar dados do chamado</summary>
+                    <div id="mensagem-editar" class="mensagem"></div>
+                    <form id="form-editar" novalidate>
+                        <div class="campos">
+                            <label class="campo-largo">Título
+                                <input id="editar-titulo" maxlength="120" required>
+                            </label>
+                            <label class="campo-largo">Descrição
+                                <textarea id="editar-descricao" maxlength="2000" required></textarea>
+                            </label>
+                            <label>Prioridade
+                                <select id="editar-prioridade" required></select>
+                            </label>
+                            <label>Cliente
+                                <select id="editar-cliente" required></select>
+                            </label>
+                            <label>Categoria
+                                <select id="editar-categoria" required></select>
+                            </label>
+                            <label><span>Técnico <span class="opcional">(opcional)</span></span>
+                                <select id="editar-tecnico"></select>
+                            </label>
+                        </div>
+                        <div class="acoes">
+                            <button type="submit">Salvar alterações</button>
+                        </div>
+                    </form>
+                </details>
+            </section>
+
+            <div class="acoes">
+                <button class="perigo" id="excluir">Excluir chamado</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/chamado.js"></script>
+</body>
+</html>
