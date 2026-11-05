@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Categorias · Sistema de Chamados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" href="index.html">Sistema de Chamados</a>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="chamados.html">Chamados</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="categorias.html" class="ativo">Categorias</a>
+            <a href="tecnicos.html">Técnicos</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Categorias</h1>
+        <p class="subtitulo">Classificação usada na abertura dos chamados.</p>
+
+        <section class="cartao">
+            <h2 id="titulo-form">Nova categoria</h2>
+            <div id="mensagem-form" class="mensagem"></div>
+            <form id="form-categoria" novalidate>
+                <input type="hidden" id="id">
+                <div class="campos">
+                    <label>Nome
+                        <input id="nome" maxlength="60" required>
+                    </label>
+                    <label class="campo-largo"><span>Descrição <span class="opcional">(opcional)</span></span>
+                        <input id="descricao" maxlength="255">
+                    </label>
+                </div>
+                <div class="acoes">
+                    <button type="submit">Salvar</button>
+                    <button type="button" class="secundario" id="cancelar" hidden>Cancelar edição</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="cartao">
+            <h2>Categorias cadastradas</h2>
+            <div id="mensagem-lista" class="mensagem"></div>
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Nome</th><th>Descrição</th><th></th></tr>
+                    </thead>
+                    <tbody id="lista"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/categorias.js"></script>
+</body>
+</html>

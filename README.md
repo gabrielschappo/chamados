@@ -16,6 +16,22 @@ A API sobe em `http://localhost:8080`.
 O banco H2 fica em memória e é recriado a cada reinício. Para consultar o banco, acesse
 `http://localhost:8080/h2-console` com JDBC URL `jdbc:h2:mem:chamadosdb`, usuário `sa` e senha em branco.
 
+## Telas (front-end)
+
+Com a aplicação rodando, acesse `http://localhost:8080/`. As telas são páginas HTML + JavaScript em
+`src/main/resources/static` e usam a mesma API REST documentada abaixo (via `fetch`). Não acessam o banco diretamente.
+
+| Tela | Arquivo | O que faz |
+|---|---|---|
+| Início | `index.html` | Contadores por status, que levam à lista filtrada; totais de cadastros e últimos chamados |
+| Chamados | `chamados.html` | Abrir chamado; lista com filtros (status, prioridade, cliente), ordenação e paginação |
+| Detalhe do chamado | `chamado.html?id={id}` | Dados, alterar status, atribuir técnico, comentários, editar e excluir |
+| Clientes | `clientes.html` | Cadastrar, editar, excluir e ver os chamados do cliente |
+| Categorias | `categorias.html` | Cadastrar, editar e excluir |
+| Técnicos | `tecnicos.html` | Cadastrar, editar e excluir |
+
+As mensagens de erro da API (400, 404 e 409) aparecem na própria tela.
+
 ## Rotas
 
 ### Clientes

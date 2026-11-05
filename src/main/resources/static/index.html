@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Início · Sistema de Chamados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="topo">
+        <a class="marca" href="index.html">Sistema de Chamados</a>
+        <nav>
+            <a href="index.html" class="ativo">Início</a>
+            <a href="chamados.html">Chamados</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="categorias.html">Categorias</a>
+            <a href="tecnicos.html">Técnicos</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Início</h1>
+        <p class="subtitulo">Visão geral dos chamados. Clique em um indicador para ver a lista filtrada.</p>
+        <div id="mensagem" class="mensagem"></div>
+
+        <div class="indicadores" id="indicadores-status"></div>
+
+        <div class="grade grade-2">
+            <section class="cartao">
+                <div class="cartao-cabecalho">
+                    <h2>Últimos chamados</h2>
+                    <a class="botao pequeno" href="chamados.html?novo">Abrir chamado</a>
+                </div>
+                <div class="tabela-container">
+                    <table>
+                        <thead><tr><th>#</th><th>Título</th><th>Status</th><th>Abertura</th></tr></thead>
+                        <tbody id="ultimos"></tbody>
+                    </table>
+                </div>
+                <div class="acoes"><a href="chamados.html">Ver todos os chamados →</a></div>
+            </section>
+
+            <section class="cartao">
+                <h2>Cadastros</h2>
+                <div class="indicadores" id="indicadores-cadastros"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/inicio.js"></script>
+</body>
+</html>
